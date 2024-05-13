@@ -1,0 +1,37 @@
+<div class="container">
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a href="/" class="nav-link">Início</a>
+      </li>
+      <li class="nav-item">
+        <a href="/menu" class="nav-link">Nosso Cardápio</a>
+      </li>
+      <li class="nav-item">
+        <a href="/contact" class="nav-link active">Trabalhe conosco</a>
+      </li>
+    </ul>
+  </header>
+</div>
+<div class="d-flex justify-content-center">
+  <form action="/submit" method="post">
+    <div class="mb-3">
+      <label for="email" class="form-label">Digite seu endereço de e-mail</label>
+      <input type="email" id="email" name="email" required class="form-control" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">Este e-mail fará parte do nosso banco de talentos.</div>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Mensagem</label>
+      <div class="form-floating">
+        <textarea required id="message" name='message' class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
+      </div>
+      <div id="messageHelp" class="form-text">Fale um pouco sobre seus objetivos/conquistas profissionais.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</div>
+<hr>
+<footer class="d-flex flex-column align-items-center">
+  <p>&copy; {{actualYear}} CASA DO CAMARÃO</p>
+  <p>Todos os direitos reservados</p>
+</footer>
