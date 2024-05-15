@@ -8,14 +8,13 @@ export const renderContact = (_, res) => {
 
 export const submitForm = async (req, res) => {
   const { email, message } = req.body;
-  const resume = req.file ? req.file.filename : null;
 
   if (!email || !message) {
     return res.status(400).send("Dados incompletos, formulário não foi enviado. Tente novamente.");
   }
 
   try {
-    await FormSubmission.create({ email, message, resume });
+    await FormSubmission.create({ email, message });
     res.send('Formulário enviado com sucesso!');
   } catch (error) {
     console.error('Error saving form submission:', error);
