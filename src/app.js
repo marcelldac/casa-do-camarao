@@ -1,98 +1,38 @@
-import express from 'express'
-import { create } from 'express-handlebars'
+import express from 'express';
+import { create } from 'express-handlebars';
+import sequelize from './config/database.js';
 
-import { 
-  data, 
-  actualYear, 
-  restaurantCopy1, 
-  restaurantCopy2, 
-  restaurantCopyImage1, 
-  restaurantCopyImage2, 
-  shrimpDescription1, 
-  shrimpDescription2, 
-  shrimpDescription3, 
-  shrimpImage1, 
-  shrimpImage2, 
-  shrimpImage3, 
-  shrimpTitle1,
-  shrimpTitle2, 
-  shrimpTitle3
-} from '../data.js'
+import { renderHome } from './controllers/homeController.js';
+import { renderMenu } from './controllers/menuController.js';
+import { renderContact, submitForm } from './controllers/contactController.js';
 
-import { createAUser, createUsersTable, readUsers } from './services/db.js'
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const HOST = 'http://localhost';
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000
-const HOST = 'http://localhost'
+const app = express();
+const hbs = create({});
 
-const app = express()
-const hbs = create({})
-
-app.engine('handlebars', hbs.engine)
-app.enable('view cache')
-app.set('view engine', 'handlebars')
-app.set('views', './views')
+app.engine('handlebars', hbs.engine);
+app.enable('view cache');
+app.set('view engine', 'handlebars');
+app.set('views', './src/views');
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (_, res) => {
-  res.render('home', {
-    showTitle: true,
-    shrimpImage1,
-    shrimpTitle1,
-    shrimpDescription1,
-    shrimpImage2,
-    shrimpTitle2,
-    shrimpDescription2,
-    shrimpImage3,
-    shrimpTitle3,
-    shrimpDescription3,
-    restaurantCopy1,
-    restaurantCopyImage1,
-    restaurantCopy2,
-    restaurantCopyImage2,
-    actualYear
-  })
-})
+app.get('/', renderHome);
+app.get('/menu', renderMenu);
+app.get('/contact', renderContact);
+app.post('/submit', submitForm);
 
-app.get('/menu', (_, res) => {
-  const number = '557185211804'
-  res.render('menu', {
-    data,
-    number,
-    shrimpImage1,
-    shrimpTitle1,
-    shrimpDescription1,
-    shrimpImage2,
-    shrimpTitle2,
-    shrimpDescription2,
-    shrimpImage3,
-    shrimpTitle3,
-    shrimpDescription3,
-    restaurantCopyImage1,
-    restaurantCopyTitle1: 'Camarão Marinho KG',
-    restaurantCopyDescription1: 'O melhor camarão marinho que você verá nas próximas décadas. Uma mistura de suculência e crocância.',
-    restaurantMenuImage1: 'https://istoedinheiro.com.br/wp-content/uploads/sites/17/2023/01/11-3.jpg',
-    restaurantMenuTitle1: 'Camarão Carabineiro KG',
-    restaurantMenuDescription1: 'Pescado a mais de 500 metros de profundidade, em fundos de areia jamais tocada, o camarão carabineiro é muito apreciado na Casa do Camarão. De cor vermelha intensa, sabor marcante e alta crocância, ele se destaca pelo tamanho avantajado.',
-    restaurantMenuImage2: 'https://live.staticflickr.com/6234/6380665035_9a530dd1ee_b.jpg',
-    restaurantMenuTitle2: 'Camarão da Costa Negra',
-    restaurantMenuDescription2: 'A região da Costa Negra cearense é uma das mais belas áreas litorâneas do Brasil. Com paisagens encantadoras e praias paradisíacas, a região ganhou espaço no cenário nacional e internacional pela qualidade dos camarões que ali habitam. Uma iguaria de alta qualidade, produzida de forma ecologicamente correta, com características únicas! Uma verdadeira especialidade!',
-    actualYear
-  })
-})
-
-app.get('/contact', (_, res) => {
-  res.render('contact', { actualYear })
-})
-
-app.post('/submit', async (req, res) => {
-  const formData = req.body
-  if(!formData.email || !formData.message) {
-    return res.status(400).send("Dados incompletos, formulário não foi enviado. Tente novamente.")
+const startServer = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log('Database connected successfully.');
+    app.listen(PORT, () => {
+      console.log(`Server is running in ${HOST}:${PORT}`);
+    });
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
   }
-  res.send('Formulário enviado com sucesso!')
-})
+};
 
-app.listen(PORT, () => {
-  console.log(`Server is running in ${HOST}:${PORT}`)
-})
-
+startServer();
