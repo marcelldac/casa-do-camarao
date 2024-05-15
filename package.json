@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "node --watch src/app.js",
     "prepare": "node src/scripts/syncDb.js",
-    "lint": "npx eslint --fix . -c eslint.config.mjs --format=stylish"
+    "lint": "npx eslint --fix . -c eslint.config.mjs --format=stylish",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
