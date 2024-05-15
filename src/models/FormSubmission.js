@@ -1,4 +1,5 @@
 import { DataTypes } from 'sequelize';
+
 import sequelize from '../config/database.js';
 
 const FormSubmission = sequelize.define('FormSubmission', {
@@ -9,6 +10,10 @@ const FormSubmission = sequelize.define('FormSubmission', {
   message: {
     type: DataTypes.TEXT,
     allowNull: false
+  },
+  resume: {
+    type: DataTypes.STRING,
+    allowNull: true
   }
 });
 
