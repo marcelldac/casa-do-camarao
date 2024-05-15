@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/app.js",
-    "prepare": "node src/scripts/syncDb.js"
+    "prepare": "node src/scripts/syncDb.js",
+    "lint": "npx eslint --fix . -c eslint.config.mjs --format=stylish"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,10 @@
     "multer": "^1.4.5-lts.1",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "eslint": "^9.2.0",
+    "globals": "^15.2.0"
   }
 }
