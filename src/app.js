@@ -25,7 +25,6 @@ app.engine('handlebars', hbs.engine);
 app.enable('view cache');
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
-app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,6 +38,7 @@ app.get('/submissions', viewSubmissions);
 
 const startServer = async () => {
   try {
+    await sequelize.sync();
     await sequelize.authenticate();
     console.log('Database connected successfully.');
 
