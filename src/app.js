@@ -23,6 +23,7 @@ app.enable('view cache');
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
+app.use(express.static('../public'))
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', renderHome);
