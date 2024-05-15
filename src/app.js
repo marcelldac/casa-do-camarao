@@ -9,7 +9,7 @@ import { renderMenu } from './controllers/menuController.js';
 import sequelize from './config/database.js';
 import upload from './config/multer.js';
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3333;
 const HOST = 'http://localhost';
 
 const app = express();
