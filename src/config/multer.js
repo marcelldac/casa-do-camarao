@@ -2,16 +2,16 @@ import multer from 'multer';
 import path from 'node:path';
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
+  destination: (_, __, cb) => {
     cb(null, 'uploads/');
   },
-  filename: (req, file, cb) => {
+  filename: (_, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
     cb(null, `${file.fieldname}-${uniqueSuffix}${path.extname(file.originalname)}`);
   }
 });
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = (_, file, cb) => {
   const fileTypes = /pdf|doc|docx/;
   const mimeType = fileTypes.test(file.mimetype);
   const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
