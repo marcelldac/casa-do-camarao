@@ -17,7 +17,7 @@ import {
   shrimpTitle1,
   shrimpTitle2, 
   shrimpTitle3
-} from './data.js'
+} from '../data.js'
 
 import { createAUser, createUsersTable, readUsers } from './services/db.js'
 
@@ -25,13 +25,7 @@ const PORT = process.env.PORT ? Number(process.env.PORT) : 3000
 const HOST = 'http://localhost'
 
 const app = express()
-const hbs = create({
-  helpers: {
-    readUsers: readUsers()
-  }
-})
-
-createUsersTable()
+const hbs = create({})
 
 app.engine('handlebars', hbs.engine)
 app.enable('view cache')
@@ -40,8 +34,6 @@ app.set('views', './views')
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (_, res) => {
-  createAUser('a','b')
-  console.log('oi')
   res.render('home', {
     showTitle: true,
     shrimpImage1,
@@ -85,7 +77,6 @@ app.get('/menu', (_, res) => {
     restaurantMenuTitle2: 'Camarão da Costa Negra',
     restaurantMenuDescription2: 'A região da Costa Negra cearense é uma das mais belas áreas litorâneas do Brasil. Com paisagens encantadoras e praias paradisíacas, a região ganhou espaço no cenário nacional e internacional pela qualidade dos camarões que ali habitam. Uma iguaria de alta qualidade, produzida de forma ecologicamente correta, com características únicas! Uma verdadeira especialidade!',
     actualYear
-
   })
 })
 
@@ -98,13 +89,9 @@ app.post('/submit', async (req, res) => {
   if(!formData.email || !formData.message) {
     return res.status(400).send("Dados incompletos, formulário não foi enviado. Tente novamente.")
   }
-  createAUser(formData.email, formData.message)
   res.send('Formulário enviado com sucesso!')
 })
 
-app.get('/users', (_, res) => {
-  res.send(readUsers())
-})
 app.listen(PORT, () => {
   console.log(`Server is running in ${HOST}:${PORT}`)
 })
