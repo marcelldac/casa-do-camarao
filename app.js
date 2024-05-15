@@ -1,6 +1,5 @@
 import express from 'express'
 import { create } from 'express-handlebars'
-import pg from 'pg'
 
 import { 
   data, 
@@ -19,7 +18,8 @@ import {
   shrimpTitle2, 
   shrimpTitle3
 } from './data.js'
-import { createAUser } from './services/db.js'
+
+import { createAUser, createUsersTable, readUsers } from './services/db.js'
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000
 const HOST = 'http://localhost'
@@ -27,9 +27,11 @@ const HOST = 'http://localhost'
 const app = express()
 const hbs = create({
   helpers: {
-    foo () { return 'foo' },
+    readUsers: readUsers()
   }
 })
+
+createUsersTable()
 
 app.engine('handlebars', hbs.engine)
 app.enable('view cache')
@@ -38,6 +40,8 @@ app.set('views', './views')
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (_, res) => {
+  createAUser('a','b')
+  console.log('oi')
   res.render('home', {
     showTitle: true,
     shrimpImage1,
@@ -86,9 +90,7 @@ app.get('/menu', (_, res) => {
 })
 
 app.get('/contact', (_, res) => {
-  res.render('contact', {
-    actualYear
-  })
+  res.render('contact', { actualYear })
 })
 
 app.post('/submit', async (req, res) => {
@@ -96,10 +98,14 @@ app.post('/submit', async (req, res) => {
   if(!formData.email || !formData.message) {
     return res.status(400).send("Dados incompletos, formulário não foi enviado. Tente novamente.")
   }
-  await createAUser(formData.email, formData.message)
+  createAUser(formData.email, formData.message)
   res.send('Formulário enviado com sucesso!')
 })
 
+app.get('/users', (_, res) => {
+  res.send(readUsers())
+})
 app.listen(PORT, () => {
   console.log(`Server is running in ${HOST}:${PORT}`)
 })
+
