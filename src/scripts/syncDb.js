@@ -1,5 +1,4 @@
 import sequelize from '../config/database.js';
-import FormSubmission from '../models/FormSubmission.js';
 
 const syncDb = async () => {
   try {
