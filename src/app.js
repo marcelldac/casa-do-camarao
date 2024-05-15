@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { create } from 'express-handlebars';
 
 import { renderContact, submitForm, viewSubmissions } from './controllers/contactController.js';
@@ -24,9 +25,11 @@ app.engine('handlebars', hbs.engine);
 app.enable('view cache');
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
-
-app.use(express.static('../public'))
 app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static('uploads'));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', renderHome);
 app.get('/menu', renderMenu);
