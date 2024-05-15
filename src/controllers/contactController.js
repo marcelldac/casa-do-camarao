@@ -19,3 +19,13 @@ export const submitForm = async (req, res) => {
     res.status(500).send('Erro ao salvar os dados do formulário. Tente novamente.');
   }
 };
+
+export const viewSubmissions = async (req, res) => {
+  try {
+    const submissions = await FormSubmission.findAll();
+    res.render('submissions', { submissions, actualYear });
+  } catch (error) {
+    console.error('Error retrieving submissions:', error);
+    res.status(500).send('Erro ao recuperar os dados do formulário.');
+  }
+};
