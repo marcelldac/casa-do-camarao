@@ -1,10 +1,12 @@
 import express from 'express';
 import { create } from 'express-handlebars';
-import sequelize from './config/database.js';
 
+import { renderContact, submitForm, viewSubmissions } from './controllers/contactController.js';
 import { renderHome } from './controllers/homeController.js';
 import { renderMenu } from './controllers/menuController.js';
-import { renderContact, submitForm, viewSubmissions } from './controllers/contactController.js';
+
+import sequelize from './config/database.js';
+import upload from './config/multer.js';
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 const HOST = 'http://localhost';
@@ -29,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', renderHome);
 app.get('/menu', renderMenu);
 app.get('/contact', renderContact);
-app.post('/submit', submitForm);
+app.post('/submit', upload.single('resume'), submitForm);
 app.get('/submissions', viewSubmissions);
 
 const startServer = async () => {
