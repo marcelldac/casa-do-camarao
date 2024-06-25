@@ -12,12 +12,6 @@
 npm ci
 ```
 
-<p>Se não tiver MySQL na máquina, rodar com Docker:</p>
-
-```
-docker compose up -d
-```
-
 ```
 npm run dev
 ```
