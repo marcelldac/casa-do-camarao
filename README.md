@@ -6,13 +6,11 @@
 
 <h2>🛠️ Etapas de instalação:</h2>
 
-<p>1. Prepare o banco de dados SQLite</p>
-
-```
-npm run prepare
-```
-
 <p>2. Rode a aplicação</p>
+
+```
+docker compose up -d
+```
 
 ```
 npm run dev
