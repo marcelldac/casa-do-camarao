@@ -3,9 +3,9 @@ import sequelize from '../config/database.js';
 const syncDb = async () => {
   try {
     await sequelize.sync({ force: true });
-    console.log('Database synchronized successfully.');
+    console.log('Banco sincronizado.');
   } catch (error) {
-    console.error('Error synchronizing the database:', error);
+    console.error('Erro ao sincronizar o banco:', error);
   } finally {
     await sequelize.close();
   }
