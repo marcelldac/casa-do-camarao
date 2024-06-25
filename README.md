@@ -6,7 +6,11 @@
 
 <h2>🛠️ Etapas de instalação:</h2>
 
-<p>2. Rode a aplicação</p>
+<p>1. Rode a aplicação</p>
+
+```
+npm ci
+```
 
 ```
 docker compose up -d
