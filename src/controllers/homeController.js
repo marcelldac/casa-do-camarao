@@ -8,12 +8,9 @@ import {
   restaurantCopyImage2,
   actualYear,
 } from '../data/data.js';
-import Dish from '../models/Dish.js';
 
 export const renderHome = async (req, res) => {
   try {
-    const dishes = await Dish.findAll();
-    console.log(dishes);
     res.render('home', {
       showTitle: true,
       shrimpImage1: shrimpImages[0],
@@ -31,7 +28,6 @@ export const renderHome = async (req, res) => {
       restaurantCopyImage2,
       actualYear,
       logged: req.session.sessao,
-      dishes,
     });
   } catch (err) {
     console.error('Erro ao renderizar a página inicial:', err);

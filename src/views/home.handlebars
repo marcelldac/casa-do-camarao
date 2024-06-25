@@ -119,7 +119,7 @@
       alt='Restarant copy image 1'
     />
   </div>
-  <p class='m-5'>{{restaurantCopy1}}</p>
+  <p class='m-5'>{{restaurantCopyImage1}}</p>
 </div>
 <br />
 <div class='d-flex flex-row mt-10 align-items-center'>
@@ -133,15 +133,6 @@
   </div>
 </div>
 <hr />
-{{#each dishes as |dish|}}
-  <div class='card m-3' style='width: 18rem;'>
-    <img src='{{dish.imageUrl}}' class='card-img-top' alt='{{dish.title}}' />
-    <div class='card-body'>
-      <h5 class='card-title'>{{dish.title}}</h5>
-      <p class='card-text'>{{dish.description}}</p>
-    </div>
-  </div>
-{{/each}}
 <footer class='d-flex flex-column align-items-center'>
   <p>&copy; {{actualYear}} CASA DO CAMARÃO</p>
   <p>Todos os direitos reservados</p>

@@ -6,8 +6,10 @@ import {
   restaurantCopyImage1,
   actualYear,
 } from '../data/data.js';
+import Dish from '../models/Dish.js';
 
-export const renderMenu = (req, res) => {
+export const renderMenu = async (req, res) => {
+  const dishes = await Dish.findAll();
   const number = '557185211804';
   res.render('menu', {
     data,
@@ -37,5 +39,6 @@ export const renderMenu = (req, res) => {
       'A região da Costa Negra cearense é uma das mais belas áreas litorâneas do Brasil. Com paisagens encantadoras e praias paradisíacas, a região ganhou espaço no cenário nacional e internacional pela qualidade dos camarões que ali habitam. Uma iguaria de alta qualidade, produzida de forma ecologicamente correta, com características únicas! Uma verdadeira especialidade!',
     actualYear,
     logged: req.session.sessao,
+    dishes,
   });
 };
