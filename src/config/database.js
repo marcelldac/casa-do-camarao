@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
   host: "localhost",
   username: "root",
   password: "root",
-  database: "casaCamarao",
+  database: "casa_camarao",
   port: 3306,
   pool: {
     max: 10,
