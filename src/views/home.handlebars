@@ -1,89 +1,89 @@
-<div class='container'>
-  <header class='d-flex justify-content-center py-3'>
-    <ul class='nav nav-pills'>
-      <li class='nav-item'>
-        <a href='/' class='nav-link active'>Início</a>
+<div class="container">
+  <header class="d-flex justify-content-center py-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a href="/" class="nav-link active">Início</a>
       </li>
-      <li class='nav-item'>
-        <a href='/menu' class='nav-link'>Nosso Cardápio</a>
+      <li class="nav-item">
+        <a href="/menu" class="nav-link">Nosso Cardápio</a>
       </li>
       {{#if logged}}
-        <li class='nav-item'>
-          <a href='/logout' class='nav-link'>Logout</a>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">Logout</a>
         </li>
-        <li class='nav-item'>
-          <a href='/create-dish' class='nav-link'>Criar Prato</a>
+        <li class="nav-item">
+          <a href="/create-dish" class="nav-link">Criar Prato</a>
         </li>
       {{else}}
-        <li class='nav-item'>
-          <a href='/login' class='nav-link'>Login</a>
+        <li class="nav-item">
+          <a href="/login" class="nav-link">Login</a>
         </li>
-        <li class='nav-item'>
-          <a href='/register' class='nav-link'>Cadastre-se</a>
+        <li class="nav-item">
+          <a href="/register" class="nav-link">Cadastre-se</a>
         </li>
       {{/if}}
     </ul>
   </header>
 </div>
-<div class='d-flex justify-content-center'>
-  <div id='carouselExampleCaptions' class='carousel slide w-50 h-50'>
-    <div class='carousel-indicators'>
+<div class="d-flex justify-content-center">
+  <div id="carouselExampleCaptions" class="carousel slide w-50 h-50">
+    <div class="carousel-indicators">
       <button
-        type='button'
-        data-bs-target='#carouselExampleCaptions'
-        data-bs-slide-to='0'
-        class='active'
-        aria-current='true'
-        aria-label='Slide 1'
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="0"
+        class="active"
+        aria-current="true"
+        aria-label="Slide 1"
       ></button>
       <button
-        type='button'
-        data-bs-target='#carouselExampleCaptions'
-        data-bs-slide-to='1'
-        aria-label='Slide 2'
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="1"
+        aria-label="Slide 2"
       ></button>
       <button
-        type='button'
-        data-bs-target='#carouselExampleCaptions'
-        data-bs-slide-to='2'
-        aria-label='Slide 3'
+        type="button"
+        data-bs-target="#carouselExampleCaptions"
+        data-bs-slide-to="2"
+        aria-label="Slide 3"
       ></button>
     </div>
-    <div class='carousel-inner'>
-      <div class='carousel-item active'>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
         <img
           src={{shrimpImage1}}
-          class='d-block w-100 h-100'
-          alt='Shrimp image 1'
+          class="d-block w-100 h-100"
+          alt="Shrimp image 1"
         />
         <div
-          class='carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded'
+          class="carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded"
         >
           <h5>{{shrimpTitle1}}</h5>
           <p>{{shrimpDescription1}}</p>
         </div>
       </div>
-      <div class='carousel-item'>
+      <div class="carousel-item">
         <img
           src={{shrimpImage2}}
-          class='d-block w-100 h-100'
-          alt='Shrimp image 2'
+          class="d-block w-100 h-100"
+          alt="Shrimp image 2"
         />
         <div
-          class='carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded'
+          class="carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded"
         >
           <h5>{{shrimpTitle2}}</h5>
           <p>{{shrimpDescription2}}</p>
         </div>
       </div>
-      <div class='carousel-item'>
+      <div class="carousel-item">
         <img
           src={{shrimpImage3}}
-          class='d-block w-100 h-100'
-          alt='Shrimp image 3'
+          class="d-block w-100 h-100"
+          alt="Shrimp image 3"
         />
         <div
-          class='carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded'
+          class="carousel-caption d-none d-md-block bg-white p-2 text-dark bg-opacity-50 rounded"
         >
           <h5>{{shrimpTitle3}}</h5>
           <p>{{shrimpDescription3}}</p>
@@ -91,49 +91,49 @@
       </div>
     </div>
     <button
-      class='carousel-control-prev'
-      type='button'
-      data-bs-target='#carouselExampleCaptions'
-      data-bs-slide='prev'
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="prev"
     >
-      <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-      <span class='visually-hidden'>Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
     </button>
     <button
-      class='carousel-control-next'
-      type='button'
-      data-bs-target='#carouselExampleCaptions'
-      data-bs-slide='next'
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExampleCaptions"
+      data-bs-slide="next"
     >
-      <span class='carousel-control-next-icon' aria-hidden='true'></span>
-      <span class='visually-hidden'>Next</span>
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
     </button>
   </div>
 </div>
 <br />
-<div class='d-flex flex-row mt-10 align-items-center'>
-  <div class='m-5 w-100 h-100'>
+<div class="d-flex flex-row mt-10 align-items-center">
+  <div class="m-5 w-100 h-100">
     <img
-      class='rounded img-fluid'
+      class="rounded img-fluid"
       src={{restaurantCopyImage1}}
-      alt='Restarant copy image 1'
+      alt="Restarant copy image 1"
     />
   </div>
-  <p class='m-5'>{{restaurantCopyImage1}}</p>
+  <p class="m-5">{{restaurantCopy1}}</p>
 </div>
 <br />
-<div class='d-flex flex-row mt-10 align-items-center'>
-  <p class='m-5'>{{restaurantCopy2}}</p>
-  <div class='m-5 w-100 h-100'>
+<div class="d-flex flex-row mt-10 align-items-center">
+  <p class="m-5">{{restaurantCopy2}}</p>
+  <div class="m-5 w-100 h-100">
     <img
-      class='rounded img-fluid'
+      class="rounded img-fluid"
       src={{restaurantCopyImage2}}
-      alt='Restarant copy image 2'
+      alt="Restarant copy image 2"
     />
   </div>
 </div>
 <hr />
-<footer class='d-flex flex-column align-items-center'>
+<footer class="d-flex flex-column align-items-center">
   <p>&copy; {{actualYear}} CASA DO CAMARÃO</p>
   <p>Todos os direitos reservados</p>
 </footer>
