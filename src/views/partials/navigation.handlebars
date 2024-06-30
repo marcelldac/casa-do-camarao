@@ -1,0 +1,25 @@
+   <header class='d-flex justify-content-center py-3'>
+     <ul class='nav nav-pills'>
+       <li class='nav-item'>
+         <a href='/' class='nav-link {{#if isHome}}active{{/if}}'>Início</a>
+       </li>
+       <li class='nav-item'>
+         <a href='/menu' class='nav-link {{#if isMenu}}active{{/if}}'>Nosso Cardápio</a>
+       </li>
+       {{#if logged}}
+         <li class='nav-item'>
+           <a href='/logout' class='nav-link'>Logout</a>
+         </li>
+         <li class='nav-item'>
+           <a href='/create-dish' class='nav-link {{#if isCreateDish}}active{{/if}}'>Criar Prato</a>
+         </li>
+       {{else}}
+         <li class='nav-item'>
+           <a href='/login' class='nav-link {{#if isLogin}}active{{/if}}'>Login</a>
+         </li>
+         <li class='nav-item'>
+           <a href='/register' class='nav-link {{#if isRegister}}active{{/if}}'>Cadastre-se</a>
+         </li>
+       {{/if}}
+     </ul>
+   </header>

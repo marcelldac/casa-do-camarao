@@ -1,7 +1,7 @@
-import Dish from '../models/Dish.js';
+import Dish from "../models/Dish.js";
 
-export const renderCreateDish = (_, res) => {
-  res.render('createDish', { logged: false });
+export const renderCreateDish = (req, res) => {
+  res.render("createDish", { logged: req.session.sessao });
 };
 
 export const postCreateDish = async (req, res) => {
@@ -12,9 +12,9 @@ export const postCreateDish = async (req, res) => {
       description: descricao,
       imageUrl: req.file.path,
     });
-    res.redirect('/');
+    res.redirect("/");
   } catch (error) {
     console.log(error);
-    res.status(500).send('Erro ao criar o prato');
+    res.status(500).send("Erro ao criar o prato");
   }
 };
