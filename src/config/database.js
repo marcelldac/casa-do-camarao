@@ -2,11 +2,11 @@ import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize({
   dialect: "mysql",
-  host: "localhost",
-  username: "root",
-  password: "root",
-  database: "casa_camarao",
-  port: 3306,
+  host: process.env.DB_HOST || "localhost",
+  username: process.env.DB_USER || "root",
+  password: process.env.DB_PASS || "root",
+  database: process.env.DB_NAME || "casa_camarao",
+  port: process.env.DB_PORT || 3306,
   pool: {
     max: 10,
     min: 0,
