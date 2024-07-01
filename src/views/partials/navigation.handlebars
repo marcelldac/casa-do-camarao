@@ -1,25 +1,35 @@
-   <header class='d-flex justify-content-center py-3'>
-     <ul class='nav nav-pills'>
-       <li class='nav-item'>
-         <a href='/' class='nav-link {{#if isHome}}active{{/if}}'>Início</a>
-       </li>
-       <li class='nav-item'>
-         <a href='/menu' class='nav-link {{#if isMenu}}active{{/if}}'>Nosso Cardápio</a>
-       </li>
-       {{#if logged}}
-         <li class='nav-item'>
-           <a href='/logout' class='nav-link'>Logout</a>
-         </li>
-         <li class='nav-item'>
-           <a href='/create-dish' class='nav-link {{#if isCreateDish}}active{{/if}}'>Criar Prato</a>
-         </li>
-       {{else}}
-         <li class='nav-item'>
-           <a href='/login' class='nav-link {{#if isLogin}}active{{/if}}'>Login</a>
-         </li>
-         <li class='nav-item'>
-           <a href='/register' class='nav-link {{#if isRegister}}active{{/if}}'>Cadastre-se</a>
-         </li>
-       {{/if}}
-     </ul>
-   </header>
+<header class='container shadow'>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Casa do Camarão</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class='navbar-nav ms-auto'>
+          <li class='nav-item'>
+            <a href='/' class='nav-link {{#if isHome}}active{{/if}}'>Início</a>
+          </li>
+          <li class='nav-item'>
+            <a href='/menu' class='nav-link {{#if isMenu}}active{{/if}}'>Nosso Cardápio</a>
+          </li>
+          {{#if logged}}
+            <li class='nav-item'>
+              <a href='/logout' class='nav-link'>Logout</a>
+            </li>
+            <li class='nav-item'>
+              <a href='/create-dish' class='nav-link {{#if isCreateDish}}active{{/if}}'>Criar Prato</a>
+            </li>
+          {{else}}
+            <li class='nav-item'>
+              <a href='/login' class='nav-link {{#if isLogin}}active{{/if}}'>Login</a>
+            </li>
+            <li class='nav-item'>
+              <a href='/register' class='nav-link {{#if isRegister}}active{{/if}}'>Cadastre-se</a>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
