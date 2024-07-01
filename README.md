@@ -1,21 +1,85 @@
-<h1 align="center" id="title">Casa do Camarão</h1>
+# Casa do Camarão
 
-<p align="center"><img src="https://images.emojiterra.com/google/android-11/512px/1f990.png" alt="project-image"></p>
+A "Casa do Camarão" é uma aplicação web destinada a oferecer um cardápio digital interativo para um restaurante especializado em pratos de camarão. Os usuários podem visualizar pratos disponíveis, registrar-se, fazer login e criar novos pratos se estiverem autenticados.
 
-<p id="description">Bem-vindo à Casa do Camarão onde a excelência culinária encontra a hospitalidade acolhedora! Situado em um ambiente encantador que combina o charme do litoral com um design elegante nosso restaurante é o destino perfeito para os amantes de frutos do mar. Cada prato em nosso cardápio é uma celebração do frescor e da qualidade incomparáveis dos nossos ingredientes desde o suculento camarão na grelha até o irresistível camarão empanado. Venha desfrutar de uma experiência gastronômica única onde o sabor do mar se encontra com a sofisticação e o conforto de nossa belíssima estrutura. Reserve sua mesa hoje e descubra por que a Casa do Camarão é o lugar ideal para momentos memoráveis!</p>
+## Pré-requisitos
 
-<h2>🛠️ Etapas de instalação:</h2>
+Antes de iniciar, certifique-se de ter instalado:
 
-<p>1. Rode a aplicação</p>
+- Node.js
+- npm ou yarn
+- MySQL ou outro banco de dados compatível
 
+## Instalação
+
+Siga estas etapas para configurar o ambiente de desenvolvimento:
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/marcelldac/casa-do-camarao
 ```
+
+2. Instale as dependências:
+
+```bash
 npm ci
 ```
 
+ou
+
+```bash
+yarn
 ```
+
+3. Configure o banco de dados:
+
+   - Crie um banco de dados MySQL.
+   - Configure suas credenciais de acesso no arquivo de configuração do banco de dados.
+
+4. Inicie o servidor:
+
+```bash
+npm start
+```
+
+ou
+
+```bash
+yarn start
+```
+
+5. Inicie a aplicação:
+
+```bash
 npm run dev
 ```
 
-<h2>🛡️ Licença:</h2>
+## Utilização
 
-Este projeto está licenciado pelo MIT
+### Visualizar o Cardápio
+
+- Acesse a página inicial em `http://localhost:3333/`.
+- Navegue até a seção "Nosso Cardápio" para ver os pratos disponíveis.
+
+### Registrar-se
+
+- Acesse a página de registro em `http://localhost:3333/register`.
+- Preencha o formulário com seu nome de usuário e senha.
+- Após o registro, você será redirecionado para a página de login.
+
+### Login
+
+- Acesse a página de login em `http://localhost:3333/login`.
+- Insira seu nome de usuário e senha.
+- Após o login, você poderá criar novos pratos se tiver permissões de administrador.
+
+### Criar Novo Prato
+
+- Após estar logado, navegue até `http://localhost:3333/create-dish`.
+- Preencha o formulário com as informações do novo prato e envie.
+
+## Contribuição
+
+> Caso encontre um problema, crie um issue.
+> Caso queira contribuir, faça um pull request.
