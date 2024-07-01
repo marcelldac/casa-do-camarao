@@ -17,7 +17,6 @@ import session from "express-session";
 import multer from "multer";
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3333;
-const HOST = "http://localhost";
 
 const app = express();
 const hbs = create({
@@ -67,7 +66,7 @@ const startServer = async () => {
     console.log("Banco de dados conectado com sucesso.");
 
     app.listen(PORT, () => {
-      console.log(`Servidor rodando em ${HOST}:${PORT}`);
+      console.info(`Servidor rodando na porta: ${PORT}`);
     });
   } catch (error) {
     console.error("Não foi possível conectar ao banco de dados:", error);
