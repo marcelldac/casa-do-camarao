@@ -1,7 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { create } from "express-handlebars";
-
 import { renderHome } from "./controllers/homeController.js";
 import { renderMenu } from "./controllers/menuController.js";
 import { postLogin, renderLogin } from "./controllers/loginController.js";
@@ -13,7 +12,6 @@ import {
   postCreateDish,
   renderCreateDish,
 } from "./controllers/createDishController.js";
-
 import sequelize from "./config/database.js";
 import session from "express-session";
 import multer from "multer";
